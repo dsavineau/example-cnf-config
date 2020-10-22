@@ -34,7 +34,7 @@
 
 - name: Set the cache location
   set_fact:
-    provision_cache_store: "{{ hostvars[groups['registry_host'][0]].provision_cache_store }}"
+    provision_cache_store: "{{ hostvars[groups['registry_host'][0]].provision_cache_store | default('/opt/cache')}}"
 
 - name: Get openshift_version from job.components
   set_fact:
